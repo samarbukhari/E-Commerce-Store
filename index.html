@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blossom Boutique - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Home Page Specific Styles */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)),
+                        url('https://images.unsplash.com/photo-1600104197373-c07cc35e4f61?q=80&w=1470&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .hero-content {
+            padding: 2rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+
+        .hero .cta-button {
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 4rem 5%;
+            background: var(--light-bg);
+        }
+
+        .categories h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            font-size: 2.5rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .category-card h3 {
+            padding: 1rem;
+            color: var(--accent-color);
+        }
+
+        .category-card p {
+            padding: 0 1rem 1rem;
+            color: var(--text-color);
+        }
+
+        /* New Arrivals Section */
+        .new-arrivals {
+            padding: 4rem 5%;
+            background: var(--white);
+        }
+
+        .new-arrivals h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            font-size: 2.5rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-card h3 {
+            padding: 1rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .product-card .price {
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 0 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card .add-to-cart-btn {
+            width: 80%;
+            margin: 1rem 10%;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .product-card .add-to-cart-btn:hover {
+            background: #ff7096;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .category-grid,
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .categories,
+            .new-arrivals {
+                padding: 2rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-flower"></i>
+            <a href="index.html" class="active" style="text-decoration: none;"><h1>Blossom Boutique</h1></a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="#categories">Categories</a>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+            <a href="#account"><i class="fas fa-user"></i></a>
+        </div>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Blossom Boutique</h1>
+            <p>Discover our elegant collection of handpicked items</p>
+            <a href="products.html" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <h2>Shop by Category</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?q=80&w=1335&auto=format&fit=crop" alt="Clothing">
+                <h3>Clothing</h3>
+                <p>Elegant & Comfortable</p>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1624823183493-ed5832f48f18?q=80&w=1480&auto=format&fit=crop" alt="Accessories">
+                <h3>Accessories</h3>
+                <p>Beautiful Details</p>
+            </div>
+            <div class="category-card">
+                <img src="https://plus.unsplash.com/premium_photo-1683133958062-12afa652a4fb?q=80&w=1526&auto=format&fit=crop" alt="Home Decor">
+                <h3>Home Decor</h3>
+                <p>Cozy & Stylish</p>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?q=80&w=1470&auto=format&fit=crop" alt="Beauty">
+                <h3>Beauty</h3>
+                <p>Natural & Pure</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <section class="new-arrivals">
+        <h2>New Arrivals</h2>
+        <div class="product-grid">
+            <!-- Product cards will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Blossom Boutique brings you the finest selection of products with a touch of elegance.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#shipping">Shipping</a></li>
+                    <li><a href="#returns">Returns</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Blossom Boutique. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

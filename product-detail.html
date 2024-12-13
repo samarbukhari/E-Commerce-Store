@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - Blossom Boutique</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-flower"></i>
+            <a href="index.html" class="active" style="text-decoration: none;"><h1>Blossom Boutique</h1></a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html" class="active">Shop</a>
+            <a href="#categories">Categories</a>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+            <a href="#account"><i class="fas fa-user"></i></a>
+        </div>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img id="mainImage" src="" alt="Product Image">
+                <div class="zoom-lens"></div>
+            </div>
+            <div class="thumbnail-gallery">
+                <!-- Thumbnails will be loaded dynamically -->
+            </div>
+        </div>
+        <div class="product-info">
+            <h1 id="productName"></h1>
+            <div class="product-price">
+                <span id="productPrice"></span>
+                <span class="discount-badge">20% OFF</span>
+            </div>
+            <div class="product-rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>(4.5/5) - 128 Reviews</span>
+            </div>
+            <div class="product-description">
+                <p id="productDescription"></p>
+            </div>
+            <div class="product-options">
+                <div class="size-selection">
+                    <h3>Select Size</h3>
+                    <div class="size-options">
+                        <button class="size-btn">XS</button>
+                        <button class="size-btn">S</button>
+                        <button class="size-btn">M</button>
+                        <button class="size-btn">L</button>
+                        <button class="size-btn">XL</button>
+                    </div>
+                    <button class="size-guide-btn" onclick="openSizeGuide()">
+                        <i class="fas fa-ruler"></i> Size Guide
+                    </button>
+                </div>
+                <div class="color-selection">
+                    <h3>Select Color</h3>
+                    <div class="color-options">
+                        <button class="color-btn" style="background-color: #FFB7C5;"></button>
+                        <button class="color-btn" style="background-color: #87CEEB;"></button>
+                        <button class="color-btn" style="background-color: #98FB98;"></button>
+                        <button class="color-btn" style="background-color: #DDA0DD;"></button>
+                    </div>
+                </div>
+                <div class="quantity-selection">
+                    <h3>Quantity</h3>
+                    <div class="quantity-input">
+                        <button onclick="decrementQuantity()">-</button>
+                        <input type="number" id="quantity" value="1" min="1" max="10">
+                        <button onclick="incrementQuantity()">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-actions">
+                <button class="add-to-cart-btn" onclick="addToCart()">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+                <button class="wishlist-btn">
+                    <i class="far fa-heart"></i> Add to Wishlist
+                </button>
+            </div>
+            <div class="product-details-tabs">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="showTab('description')">Description</button>
+                    <button class="tab-btn" onclick="showTab('details')">Details</button>
+                    <button class="tab-btn" onclick="showTab('shipping')">Shipping</button>
+                    <button class="tab-btn" onclick="showTab('reviews')">Reviews</button>
+                </div>
+                <div class="tab-content">
+                    <div id="description" class="tab-pane active">
+                        <!-- Description content will be loaded dynamically -->
+                    </div>
+                    <div id="details" class="tab-pane">
+                        <h3>Product Details</h3>
+                        <ul>
+                            <li>Material: 100% Cotton</li>
+                            <li>Care Instructions: Machine wash cold</li>
+                            <li>Made in: Artisan workshop</li>
+                            <li>SKU: BB-2024-001</li>
+                        </ul>
+                    </div>
+                    <div id="shipping" class="tab-pane">
+                        <h3>Shipping Information</h3>
+                        <ul>
+                            <li>Free shipping on orders over $50</li>
+                            <li>Standard delivery: 3-5 business days</li>
+                            <li>Express delivery: 1-2 business days</li>
+                            <li>International shipping available</li>
+                        </ul>
+                    </div>
+                    <div id="reviews" class="tab-pane">
+                        <!-- Reviews will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Size Guide Modal -->
+    <div id="sizeGuideModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Size Guide</h2>
+            <table class="size-chart">
+                <thead>
+                    <tr>
+                        <th>Size</th>
+                        <th>Bust (in)</th>
+                        <th>Waist (in)</th>
+                        <th>Hip (in)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XS</td>
+                        <td>31-32</td>
+                        <td>24-25</td>
+                        <td>34-35</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>33-34</td>
+                        <td>26-27</td>
+                        <td>36-37</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>35-36</td>
+                        <td>28-29</td>
+                        <td>38-39</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>37-38</td>
+                        <td>30-31</td>
+                        <td>40-41</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>39-40</td>
+                        <td>32-33</td>
+                        <td>42-43</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer content remains the same -->
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
